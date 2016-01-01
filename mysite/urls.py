@@ -1,15 +1,16 @@
-from django.conf.urls import patterns, include, url
+from django.conf.urls import include, url
 from django.contrib import admin
+from django.contrib.auth.views import login, logout
 
-urlpatterns = patterns('',
+urlpatterns = [
     url(r'^', include('myblog.urls')),
     url(r'^login/$',
-        'django.contrib.auth.views.login',
+        login,
         {'template_name': 'login.html'},
         name="login"),
     url(r'^logout/$',
-        'django.contrib.auth.views.logout',
+        logout,
         {'next_page': '/'},
         name="logout"),
     url(r'^admin/', include(admin.site.urls)),
-)
+]

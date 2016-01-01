@@ -19,7 +19,7 @@ class PostAdmin(admin.ModelAdmin):
         CategorizationInline,
     ]
     list_display = (
-        '__unicode__', 'author_for_admin', 'created_date', 'modified_date', 'published_date'
+        '__str__', 'author_for_admin', 'created_date', 'modified_date', 'published_date'
     )
     readonly_fields = (
         'created_date', 'modified_date',

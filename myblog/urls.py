@@ -1,12 +1,14 @@
-from django.conf.urls import patterns, url
+from django.conf.urls import url
+
+from myblog.views import list_view
+from myblog.views import detail_view
 
 
-urlpatterns = patterns(
-    'myblog.views',
+urlpatterns = [
     url(r'^$',
-        'list_view',
+        list_view,
         name="blog_index"),
     url(r'^posts/(?P<post_id>\d+)/$',
-        'detail_view',
+        detail_view,
         name="blog_detail"),
-)
+]
